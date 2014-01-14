@@ -178,4 +178,4 @@ THE SOFTWARE.
 
 ###Read
 
-Remeber to also check out the [Blockr docs](blockr.io/documentation/api)
+Remeber to also check out the [Blockr docs](http://blockr.io/documentation/api)
