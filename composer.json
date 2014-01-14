@@ -1,0 +1,20 @@
+{
+    "name": "gkunno/blockr-php",
+    "description": "A PHP wrapper for the Blockr.io API.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Patrik Storm",
+            "email": "storm.patrik@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "guzzle/guzzle": "3.8.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "BlockrPHP": "src/"
+        }
+    }
+}
