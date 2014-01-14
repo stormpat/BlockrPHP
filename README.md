@@ -18,20 +18,22 @@ and transactions.
 
 ###Installation
 
+**Composer**
 ```javascript
 
-    // in composer.json
+// in composer.json
 
-   "require": {
-        "gkunno/blockr-php": "dev-master"
-    }
+"require": {
+    "gkunno/blockr-php": "dev-master"
+}
 
-    // from command line
+// from command line
 
-    composer require gkunno/blockr-php:dev-master
+composer require gkunno/blockr-php:dev-master
 
 ```
 
+**Setup**
 ```php
 require_once __DIR__ . '/vendor/autoload.php';
 
