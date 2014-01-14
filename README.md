@@ -152,6 +152,37 @@ $coin->addressUnspent($address)
 
 Returns unspent transactions for given address. Unspent transactions are transactions that still have value. Value of these transactions hasn't been spent yet. You can add multiple addresses to api call.
 
+**Example**
+
+```php
+
+$coin = new Api('Litecoin');
+
+$block = $coin->blockInfo('497250');
+
+if ($block->code === 200)
+{
+    echo 'Block number ' . $block->data->nb . '<br>';
+    echo 'Block hash ' .   $block->data->hash . '<br>';
+    echo 'Version ' . $block->data->version . '<br>';
+    echo 'Block confirmations ' . $block->data->confirmations . '<br>';
+    echo 'Block timestamp UTC) ' . $block->data->time_utc . '<br>';
+    echo 'Block transactions ' . $block->data->nb_txs . '<br>';
+    echo 'Block merkleroot ' . $block->data->merkleroot . '<br>';
+    echo 'Next block id ' . $block->data->next_block_nb . '<br>';
+    echo 'Previous block id ' . $block->data->prev_block_nb . '<br>';
+    echo 'Next block hash ' . $block->data->next_block_hash . '<br>';
+    echo 'Previous block hash ' . $block->data->prev_block_hash . '<br>';
+    echo 'Block fee ' . $block->data->fee . '<br>';
+    echo 'Block vout sum ' . $block->data->vout_sum . '<br>';
+    echo 'Block size ' . $block->data->size . '<br>';
+    echo 'Block difficulty ' . $block->data->difficulty . '<br>';
+    echo 'Block message ' . $block->message . '<br>';
+
+}
+
+```
+
 ###Licence
 
 The MIT License (MIT)
