@@ -71,38 +71,54 @@ $coin->address('LTrRaX2KMN27cigK9QiCmJGk3qYww45ahn, LUZp5GbpxfwykA6PieSApkhAyRbP
 
 **Methods**
 
-```$coin->coinInfo()```
+```php
+$coin->coinInfo()
+```
 
 Gives you information about the currency, Basic coin information with coin name, abbreviation,
 logo and homepage URL volume - Volume information: how many coins are in supply and how many coins will there ever be
 last_block - Information about the last block in the longest chain.
 next_difficulty - When will next difficulty be retargeted and how big it will probably be.
 
-```$coin->blockInfo($block)```
+```php
+$coin->blockInfo($block)
+```
 
 Where ```$block``` can be a integer (eg: 223212). To get the latest block info pass in the string ```last``` - this will always return the latest block information.
 
-```$coin->blockTx($block)```
+```php
+$coin->blockTx($block)
+```
 
 Returns short info about all transactions in given block.
 
-```$coin->blockRaw($block)```
+```php
+$coin->blockRaw($block)
+```
 
 Returns raw block data in the bitcoind format.
 
-```$coin->transaction($transaction)```
+```php
+coin->transaction($transaction)
+```
 
 Returns transaction data. Some fields are normalized - 'vin' is presented as an address and not as a previous transaction hash. 'vins' and 'vouts' present actual traded value, not whole transaction amounts. If you need exact transaction presentation, use raw api call.
 
-```$coin->transactionRaw($transaction)```
+```php
+$coin->transactionRaw($transaction)
+```
 
 Will return raw data for given transaction
 
-```$coin->address($address)```
+```php
+$coin->address($address)
+```
 
 Returns basic address data, date, block and transaction when this address first appeared and last transaction data.
 
-```$coin->address($address, 10)```
+```php
+$coin->address($address, 10)
+```
 
 Optional parameter for confirmations. Must be a integer.
 
@@ -110,20 +126,28 @@ If set, API will include only those transactions that have this number of confir
 
 If there are 6 or more confirmations of transaction then the transaction is assumed to be as safe (valid).
 
-```$coin->balance($balance)```
+```php
+$coin->balance($balance)
+```
 
 This api call can be used to fast request only address balance. You can add multiple addresses to api call.
 
-```$coin->balance($balance, 10)```
+```php
+$coin->balance($balance, 10)
+```
 
 Add number of confirmations.
 
 
-```$coin->addressTx($address)```
+```php
+$coin->addressTx($address)
+```
 
 Returns transactions for given address. Only the most recent 200 transactions are shown. If you need more, contact us. You can add multiple addresses to api call.
 
-```$coin->addressUnspent($address)```
+```php
+$coin->addressUnspent($address)
+```
 
 Returns unspent transactions for given address. Unspent transactions are transactions that still have value. Value of these transactions hasn't been spent yet. You can add multiple addresses to api call.
 
