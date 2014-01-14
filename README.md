@@ -58,6 +58,7 @@ $coin = new Api('Litecoin');
 
 ```
 
+***Pro-tip***
 To get data faster (reducing HTTP calls) you can chain query params in one call. So if you want information about the
 addresses (just grabbed these from the blockchain randomly) ```LTrRaX2KMN27cigK9QiCmJGk3qYww45ahn```
 and ```LUZp5GbpxfwykA6PieSApkhAyRbPeyE6KE``` you can chain them togheter.
