@@ -1,7 +1,8 @@
 {
     "name": "gkunno/blockr-php",
-    "description": "A PHP wrapper for the Blockr.io API.",
+    "description": "A wrapper for the Block.io API. Supports Bitcoin, Litecoin and Digitalcoin.",
     "license": "MIT",
+    "keywords": ["bitcoin", "litecoin", "digitalcoin", "bitcoin api", "blockr", "cryptocurrency"],
     "authors": [
         {
             "name": "Patrik Storm",
@@ -10,6 +11,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
+        "php": ">=5.3.3",
+        "ext-curl": "*",
         "guzzle/guzzle": "3.8.*"
     },
     "autoload": {

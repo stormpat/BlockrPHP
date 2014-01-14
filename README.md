@@ -9,7 +9,7 @@
 ###Requirements
 
 - PHP >=5.3.3
-- [The curl extension](php.net/curl)
+- [curl extension](php.net/curl)
 
 ###About
 
