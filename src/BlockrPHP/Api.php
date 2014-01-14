@@ -4,26 +4,12 @@ namespace BlockrPHP;
 
 use Exception;
 use BlockrPHP\ApiInterface;
-use Guzzle\Http\Client;
 
 class Api extends ApiServiceProvider implements ApiInterface {
 
     public function __construct($currency)
     {
-        if (in_array(strtolower($currency), array('bitcoin', 'litecoin', 'digitalcoin'))) {
-            $this->currency = $currency;
-            $this->client = new Client($this->url());
-        }
-        else
-        {
-            throw new Exception('Only Bitcoin, Litecoin and Digitalcoin are supported.');
-        }
-    }
-
-    public function request($params, $block)
-    {
-        $response = $this->client->get($params . $block)->send()->getBody();
-        return json_decode($response);
+        parent::__construct($currency);
     }
 
     public function coinInfo()

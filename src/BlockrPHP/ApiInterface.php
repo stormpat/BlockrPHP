@@ -11,7 +11,7 @@ interface ApiInterface {
     public function transaction($transaction);
     public function transactionRaw($transaction);
     public function address($address, $confirmations);
-    public function balance($address, $confirmations = null);
+    public function balance($address, $confirmations);
     public function addressTx($address);
     public function addressUnspent($address);
 }

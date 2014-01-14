@@ -1,6 +1,8 @@
 <?php
 
 namespace BlockrPHP;
+use Guzzle\Http\Client;
+use Exception;
 
 class ApiServiceProvider {
 
@@ -20,6 +22,24 @@ class ApiServiceProvider {
     protected $balance = 'address/balance/';
     protected $addressTx = 'address/txs/';
     protected $addressUnspent = 'address/unspent/';
+
+    public function __construct($currency)
+    {
+        if (in_array(strtolower($currency), array('bitcoin', 'litecoin', 'digitalcoin'))) {
+            $this->currency = $currency;
+            $this->client = new Client($this->url());
+        }
+        else
+        {
+            throw new Exception('Only Bitcoin, Litecoin and Digitalcoin are supported.');
+        }
+    }
+
+    public function request($params, $block)
+    {
+        $response = $this->client->get($params . $block)->send()->getBody();
+        return json_decode($response);
+    }
 
     public function url()
     {
