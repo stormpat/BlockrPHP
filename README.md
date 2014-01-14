@@ -46,7 +46,86 @@ Now you can call methods on the ```$coin```instance.
 
 ###Documentation
 
-@todo asap :)
+First choose your currency. When you create the object tell the ```Api``` class
+what currency you want to use.
+
+Available currencies are ```Bitcoin, Litecoin and Digitalcoin```
+
+```php
+
+// create new instance with Litecoin.
+$coin = new Api('Litecoin');
+
+```
+
+To get data faster (reducing HTTP calls) you can chain query params in one call. So if you want information about the
+addresses (just grabbed these from the blockchain randomly) ```LTrRaX2KMN27cigK9QiCmJGk3qYww45ahn```
+and ```LUZp5GbpxfwykA6PieSApkhAyRbPeyE6KE``` you can chain them togheter.
+
+```php
+
+// chain two addresses and get data in a single http call.
+$coin->address('LTrRaX2KMN27cigK9QiCmJGk3qYww45ahn, LUZp5GbpxfwykA6PieSApkhAyRbPeyE6KE');
+
+```
+
+**Methods**
+
+```$coin->coinInfo()```
+
+Gives you information about the currency, Basic coin information with coin name, abbreviation,
+logo and homepage URL volume - Volume information: how many coins are in supply and how many coins will there ever be
+last_block - Information about the last block in the longest chain.
+next_difficulty - When will next difficulty be retargeted and how big it will probably be.
+
+```$coin->blockInfo($block)```
+
+Where ```$block``` can be a integer (eg: 223212). To get the latest block info pass in the string ```last``` - this will always return the latest block information.
+
+```$coin->blockTx($block)```
+
+Returns short info about all transactions in given block.
+
+```$coin->blockRaw($block)```
+
+Returns raw block data in the bitcoind format.
+
+```$coin->transaction($transaction)```
+
+Returns transaction data. Some fields are normalized - 'vin' is presented as an address and not as a previous transaction hash. 'vins' and 'vouts' present actual traded value, not whole transaction amounts. If you need exact transaction presentation, use raw api call.
+
+```$coin->transactionRaw($transaction)```
+
+Will return raw data for given transaction
+
+```$coin->address($address)```
+
+Returns basic address data, date, block and transaction when this address first appeared and last transaction data.
+
+```$coin->address($address, 10)```
+
+Optional parameter for confirmations. Must be a integer.
+
+If set, API will include only those transactions that have this number of confirmations. If for example an address gets 10 coins in some transaction in the last block and if you set confirmations = 2 then this last transaction will not be included in balance.
+
+If there are 6 or more confirmations of transaction then the transaction is assumed to be as safe (valid).
+
+```$coin->balance($balance)```
+
+This api call can be used to fast request only address balance. You can add multiple addresses to api call.
+
+```$coin->balance($balance, 10)```
+
+Add number of confirmations.
+
+
+```$coin->addressTx($address)```
+
+Returns transactions for given address. Only the most recent 200 transactions are shown. If you need more, contact us. You can add multiple addresses to api call.
+
+```$coin->addressUnspent($address)```
+
+Returns unspent transactions for given address. Unspent transactions are transactions that still have value. Value of these transactions hasn't been spent yet. You can add multiple addresses to api call.
 
 ###Licence
 
@@ -71,3 +150,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+###Read
+
+Remeber to also check out the [Blockr docs](blockr.io/documentation/api)
