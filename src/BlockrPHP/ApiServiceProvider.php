@@ -8,9 +8,7 @@ use Exception;
  * @package BlockrPHP
  */
 class ApiServiceProvider {
-
     /**
-     *
      * @var
      */
     protected $currency;
@@ -99,8 +97,7 @@ class ApiServiceProvider {
      */
     public function request($params, $block)
     {
-        $response = $this->client->get($params . $block)->send()->getBody();
-        return json_decode($response);
+        return json_decode($this->client->get($params . $block)->send()->getBody());
     }
 
     /**
