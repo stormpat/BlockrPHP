@@ -35,4 +35,11 @@ class ApiTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($this->digitalcoin->coinInfo()->data->coin->name, 'Digitalcoin');
     }
 
+    public function testUrlbuilder()
+    {
+        $this->assertEquals($this->bitcoin->url(), 'http://blockr.io/api/v1/');
+        $this->assertEquals($this->litecoin->url(), 'http://ltc.blockr.io/api/v1/');
+        $this->assertEquals($this->digitalcoin->url(), 'http://dgc.blockr.io/api/v1/');
+    }
+
 }
