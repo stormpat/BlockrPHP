@@ -100,7 +100,7 @@ $coin->blockRaw($block)
 Returns raw block data in the bitcoind format.
 
 ```php
-coin->transaction($transaction)
+$coin->transaction($transaction)
 ```
 
 Returns transaction data. Some fields are normalized - 'vin' is presented as an address and not as a previous transaction hash. 'vins' and 'vouts' present actual traded value, not whole transaction amounts. If you need exact transaction presentation, use raw api call.
