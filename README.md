@@ -24,12 +24,12 @@ and transactions.
 // in composer.json
 
 "require": {
-    "gkunno/blockr-php": "dev-master"
+    "stormpat/blockr-php": "dev-master"
 }
 
 // from command line
 
-composer require gkunno/blockr-php:dev-master
+composer require stormpat/blockr-php:dev-master
 
 ```
 

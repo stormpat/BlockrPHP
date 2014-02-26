@@ -1,5 +1,5 @@
 {
-    "name": "gkunno/blockr-php",
+    "name": "stormpat/blockr-php",
     "description": "A PHP wrapper for the Blockr.io API. Supports Bitcoin, Litecoin and Digitalcoin.",
     "license": "MIT",
     "keywords": ["bitcoin", "litecoin", "digitalcoin", "bitcoin api", "blockr", "cryptocurrency"],
